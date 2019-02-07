@@ -28,14 +28,14 @@ app.listen(app.get('port'), function () {
 });
 
 app.get('/', (req, res) => {
-	res.render('about');
+	res.render('index');
 });
 
-app.get('/login', (req, res) => {
-	res.render('index1');
+app.get('/SignUp', (req, res) => {
+	res.render('signup');
 })
 
-app.post('/onLogin', (req, res) => {
+app.post('/onSignUp', (req, res) => {
 	console.log(req.body.email);
 	let userData = 
 		{
@@ -49,7 +49,7 @@ app.post('/onLogin', (req, res) => {
 		let users = db.collection('users');
 		users.insertOne(userData, function (err, result) {
 			if (err) throw err;
-			res.send('Done');
+			res.redirect('/');
 		});
 	});
 })
