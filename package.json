@@ -1,6 +1,6 @@
 {
 	"name": "banking-system",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "An online banking system",
 	"main": "app.js",
 	"scripts": {
