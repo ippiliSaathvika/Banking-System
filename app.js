@@ -33,10 +33,16 @@ app.get('/', (req, res) => {
 
 app.get('/SignUp', (req, res) => {
 	res.render('signup');
-})
+});
+
+app.get('/Login', (req, res) => {
+	res.render('login');
+});
+app.get('/CreateAccount', (req, res) => {
+	res.render('CreateAccount');
+});
 
 app.post('/onSignUp', (req, res) => {
-	console.log(req.body.email);
 	let userData = 
 		{
 			email: req.body.email,
@@ -49,28 +55,7 @@ app.post('/onSignUp', (req, res) => {
 		let users = db.collection('users');
 		users.insertOne(userData, function (err, result) {
 			if (err) throw err;
-			res.redirect('/');
+			res.redirect('/');//going to the / directory i,e home page
 		});
 	});
-})
-
-// mongoose.connect('mongodb://saathvika:l@ughy123@ds039261.mlab.com:39261/online_banking');//database name online_banking
-
-// var Schema = new mongoose.Schema({
-// 	_id: String,
-// 	name: String,
-// 	age: Number
-// });
-
-// var user = mongoose.model('emp', Schema);
-
-// app.post('/new', function (req, res) {
-// 	new user({
-// 		_id: req.body.email,
-// 		name: req.body.name,
-// 		age: req.body.age
-// 	}).save(function (err, doc) {
-// 		if (err) res.json(err);
-// 		else res.send('Successfully inserted!');
-// 	});
-// });
+});
