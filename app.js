@@ -35,11 +35,11 @@ app.get('/SignUp', (req, res) => {
 	res.render('signup');
 });
 
-app.get('/Login', (req, res) => {
-	res.render('login');
-});
+//app.get('/Login', (req, res) => {
+   // res.render('login');
+//});
 app.get('/CreateAccount', (req, res) => {
-	res.render('CreateAccount');
+	res.render('create account');
 });
 
 app.post('/onSignUp', (req, res) => {
