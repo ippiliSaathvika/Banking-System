@@ -35,9 +35,9 @@ app.get('/SignUp', (req, res) => {
 	res.render('signup');
 });
 
-//app.get('/Login', (req, res) => {
-   // res.render('login');
-//});
+app.get('/Login', (req, res) => {
+    res.render('login');
+});
 app.get('/CreateAccount', (req, res) => {
 	res.render('create account');
 });
