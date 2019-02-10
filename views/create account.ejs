@@ -1,18 +1,8 @@
 
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>E-Banking a Banking Category Bootstrap Bootstrap Responsive website Template | Services :: w3layouts</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="E-Banking Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+<title>E-Banking</title>
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Custom Theme files -->
 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
@@ -22,9 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- js --> 
 	<script src="js/jquery-2.2.3.min.js"></script>
 <!-- web-fonts -->
-<link href="//fonts.googleapis.com/css?family=Secular+One" rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
 <!-- //web-fonts --> 
 
 </head>
@@ -34,13 +22,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="header-w3mdl"><!-- header-two --> 
 			<div class="container"> 
 				<div class="agileits-logo navbar-left">
-					<h1><a href="index.html"><img src="images/e.png" alt="logo"/>Banking</a></h1> 
+					<h1><a href="index.ejs"><img src="images/e.png" alt="logo"/>Banking</a></h1> 
 				</div> 
 				<div class="agileits-hdright nav navbar-nav">
 					<div class="header-w3top"><!-- header-top --> 
 						<ul class="w3l-nav-top">
-							<li><i class="fa fa-phone"></i><span> +01 222 111 444 </span></li> 
-							<li><a href="mailto:example@mail.com"><i class="fa fa-envelope-o"></i> <span> mail@example.com</span></a></li>
+							<li><i class="fa fa-phone"></i><span> 9876543210 </span></li> 
+							<li></i> <span> mail@example.com</span></li>
 						</ul>
 						<div class="clearfix"> </div> 	 
 					</div>
@@ -64,94 +52,87 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<!-- top-nav -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="index.html" class="active">Home</a></li>
-						<li><a href="login.html" class="scroll">Login</a></li>    
-						<li><a href="signup.html" class="scroll">SignUp</a></li>    				
-						<li><a href="create account.html" class="scroll">Create Account</a></li>
+						<li><a href="/" class="active">Home</a></li>
+						<li><a href="/Login" class="scroll">Login</a></li>    
+						<li><a href="/SignUp" class="scroll">SignUp</a></li>    				
+						<li><a href="/CreateAccount" class="scroll">CreateAccount</a></li>
+
 					
 					</ul>  
 					<div class="clearfix"> </div>	
 				</div>
 			</nav>    
 		</div>
-		<!-- banner-text -->
-		<!-- banner -->
 	</div>	
-	<!--services-->
-<!--services-->
-<form>
+	
+<form action="/oncreateacc" method="post" >
+     <div class="form-group">
 	<div class="w3ls-section services">
 		<div class="container">
 			<h2 class="h3-w3l">Create Account</h2> 
 			<div class="services-left">
-  					<div class="form-group">
-  							<label for="Title" style="color:white">Title</label>
-  							<select class="form-control" id="sel1">
-    							<option value="Mr.">Mr.</option>
-    							<option value="Mrs.">Mrs.</option>
+  						
+						<div class="form-group">
+  							<label for="type of account" style="color:white">Account Type</label>
+  							<select class="form-control" name="title" id="sel1">
+    							<option value="Savings">Savings</option>
+    							<option value="Current">Current</option>
   							</select>
-					</div> 
-  					<div class="form-group">
-    					<label for="Name" style="color: white">Name</label>
-    					<input type="text" class="form-control" id="name"  placeholder="Enter Full Name" required="">
-  					</div>
+					</div>
+
+				        <label for="Name" style="color: white">Name</label>
+    					<input type="text" class="form-control" name="names" pattern="[A-Za-z]*" id="name"  placeholder="Enter Full Name" required>
+  					
 
   					
-  					<div class="form-group">
     					<label for="birth" style="color: white">D.O.B</label>
-    					<input type="date" class="form-control" id="dob" required="">
+    					<input type="date" name="date" class="form-control" id="dob" required="">
     					
-  					</div>
+  					
 
-  					<div class="form-group">
   							<label for="Gender" style="color:white">Gender</label>
-  							<select class="form-control" id="sel1">
+  							<select name="gender" class="form-control" >
     							<option value="Mr.">Male</option>
     							<option value="Mrs.">Female</option>
   							</select>
-					</div> 
+					
 
-  					<div class="form-group">
     					<label for="contact" style="color: white">Contact no.</label>
-    					<input type="text" class="form-control" pattern="[+,0-9]*" id="telephone"  placeholder="Enter Your Number" required="">
+    					<input type="text" name="tel" class="form-control" pattern="[6|7|8|9][0-9]{9}" id="telephone"  placeholder="Enter Your Number" required="">
+    					<!-- 
+  					    <label for="Security" style="color: white">Security Question:What is your favorite book?</label>
+    					<input type="text" name="sec" class="form-control" placeholder="Enter the book name" required=""> -->
     					
-  					</div>
   					
 			</div>
 			<div class="services-left">
-					<div class="form-group">
+					
     					<label for="Aadhar" style="color: white">Aadhaar no.</label>
-    					<input type="text" class="form-control" id="aadhaar"  placeholder="Enter Aadhaar Number" pattern="[+,0-9]*" required="">
+    					<input type="text" name="aadhaar" class="form-control" id="aadhaar"  placeholder="Enter Aadhaar Number" pattern="[0-9]{12}" required="">
     					
-  					</div>
+  					
 
-					<div class="form-group">
     					<label for="address" style="color: white">Address</label>
-    					<input type="address" class="form-control" id="address"  placeholder="Enter Your Home Address" required="">
+    					<input type="address"  name="address" class="form-control" id="address"  placeholder="Enter Your Home Address" required="">
     					
-  					</div>
-  					<div class="form-group">
+  					
     					<label for="city" style="color: white">City</label>
-    					<input type="text" class="form-control" id="city"  placeholder="Enter Your City" required="">
+    					<input type="text" name="city" class="form-control" id="city" pattern="[A-Za-z]*" placeholder="Enter Your City" required="">
     					
-  					</div>
-  					<div class="form-group">
     					<label for="state" style="color: white">State</label>
-    					<input type="text" class="form-control" id="state"  placeholder="Enter Your State" required="">
+    					<input type="text" name="state" class="form-control" id="state" pattern="[A-Za-z]*" placeholder="Enter Your State" required="">
     					
-  					</div>
-  				<div class="form-group">
     					<label for="pincode" style="color: white">Pincode</label>
-    					<input type="text" pattern="[0-9]*" class="form-control" id="pin"  placeholder="Enter Your Pincode" required="">
+    					<input type="text" name="pin" pattern="[0-9]{6}" class="form-control" id="pin"  placeholder="Enter Your Pincode" required="">
     					
-  					</div>
+  					
   				
 			</div>
-			<div style="padding-left: 50%"><button>submit</button></div>
+			<div style="padding-left: 50%"  ><button type="submit" class="btn btn-primary" type="submit">Submit</button></div>
 		</div>
 	</div>
+	</div>
 </form>
-	<!--//services-->
 	<div class="agileits_w3layouts-services-mid">
 		<div class="col-md-5 services-mid-img">
 		</div>
@@ -161,35 +142,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 
 <div class="w3_agile-copyright text-center">
-		<p>© 2017 E-Banking. All rights reserved | Design by <a href="//w3layouts.com/">W3layouts</a></p>
+		<p>2017 E-Banking. All rights reserved | Design by Team9</p>
 	</div>
-<!--//footer-->	
-
-	<!-- modadal-sign -->    
-	<script src="js/SmoothScroll.min.js"></script>
-	<!-- smooth-scrolling-of-move-up -->
-	<script type="text/javascript" src="js/move-top.js"></script>
-	<script type="text/javascript" src="js/easing.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			/*
-			var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-			};
-			*/
-			
-			$().UItoTop({ easingType: 'easeOutQuart' });
-			
-		});
-	</script>
-	<!-- //smooth-scrolling-of-move-up -->  
-	<!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/bootstrap.js"></script>
 
 </body>
 </html>

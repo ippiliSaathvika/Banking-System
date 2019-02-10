@@ -45,17 +45,44 @@ app.get('/CreateAccount', (req, res) => {
 app.post('/onSignUp', (req, res) => {
 	let userData = 
 		{
-			email: req.body.email,
-			name: req.body.name,
-			age: req.body.age
+			accnum: req.body.accnum,
+			username: req.body.username,
+			security: req.body.security,
+			pass: req.body.pass
 		};
 	mongodb.MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
 		if (err) throw err;
 		let db = client.db('online_banking');
-		let users = db.collection('users');
+		let users = db.collection('signup');
 		users.insertOne(userData, function (err, result) {
 			if (err) throw err;
 			res.redirect('/');//going to the / directory i,e home page
+		});
+	});
+});
+app.post('/oncreateacc', (req, res) => {
+	let userData = 
+		{
+			title: req.body.title,
+			names: req.body.names,
+			date: req.body.date,
+			gender: req.body.gender,
+			tel: req.body.tel,
+			aadhaar: req.body.aadhaar,
+			address: req.body.address,
+			city: req.body.city,
+			state: req.body.state,
+			pin: req.body.pin
+		};
+	mongodb.MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
+		if (err) throw err;
+		let db = client.db('online_banking');
+		let users = db.collection('acc_creation');
+		users.insertOne(userData, function (err, result) {
+			if (err) throw err;
+			
+			res.redirect('/');//going to the / directory i,e home page
+			res.send("Congratulations!!!Your Account is Created!!\n Your Account Number is :"+result._id+"\n          DONOT LOSE IT");
 		});
 	});
 });

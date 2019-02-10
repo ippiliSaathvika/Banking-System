@@ -64,10 +64,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<!-- top-nav -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="index.html" class="active">Home</a></li>
-						<li><a href="login.html" class="scroll">Login</a></li>    
-						<li><a href="signup.html" class="scroll">SignUp</a></li>    				
-						<li><a href="create account.html" class="scroll">Create Account</a></li>
+						<li><a href="/" class="active">Home</a></li>
+						<li><a href="/Login" class="scroll">Login</a></li>    
+						<li><a href="/SignUp" class="scroll">SignUp</a></li>    				
+						<li><a href="/CreateAccount" class="scroll">CreateAccount</a></li>
 					
 					</ul>  
 					<div class="clearfix"> </div>	
@@ -83,18 +83,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<h2 class="h3-w3l">LOGIN</h2> 
 			<div class="services-left">
-				<form>
+				<form action="/onlogin" method="POST">
   					<div class="form-group">
     					<label for="exampleInputEmail1" style="color: white">Email address</label>
-    					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    					<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    					<input type="email" name="us" //class="form-control" //id="exampleInputEmail1" //aria-describedby="emailHelp" placeholder="Enter email">
+    					<small //id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   					</div>
   					<div class="form-group">
     					<label for="exampleInputPassword1" style="color: white">Password</label>
-    					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    					<input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="Password">
   					</div>
   					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
+				<form action="/onforgotpassword" method="get" >
+					<p align ="right">
+					<button class="btn btn-primary">Forgot Password?</button>
+				</p>
+					</form>
 			</div>
 			<div class="services-right">
 				<div class="services-grid">
