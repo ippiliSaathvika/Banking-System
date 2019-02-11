@@ -19,6 +19,7 @@ app.use(
 		extended: false
 	})
 );
+var urlencodedParser = bodyParser.urlencoded({extended:false});
 app.set('port', process.env.PORT || 8000);
 app.use(express.static(__dirname + '/public'));
 app.set('views', path);
@@ -42,6 +43,8 @@ app.get('/CreateAccount', (req, res) => {
 	res.render('create account');
 });
 
+ 
+
 app.post('/onSignUp', (req, res) => {
 	let userData = 
 		{
@@ -60,6 +63,21 @@ app.post('/onSignUp', (req, res) => {
 		});
 	});
 });
+app.post('/onlogin',urlencodedParser,function(req,res){
+	mongodb.MongoClient.connect(uri, { useNewUrlParser: true }, (err, client) => {
+		let db = client.db('online_banking');
+	db.collection('signup').findOne({ username: req.body.username}, function(err, user) {
+			  if(user ===null){
+				res.end("Login invalid");
+			 }else if (user.username === req.body.username && user.pass === req.body.pass){
+				res.redirect('/');
+		   } else {
+			 console.log("Credentials wrong");
+			 res.end("Login invalid");
+		   }
+	});
+  });
+ });
 app.post('/oncreateacc', (req, res) => {
 	let userData = 
 		{
